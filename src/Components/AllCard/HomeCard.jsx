@@ -9,14 +9,14 @@ const HomeCard = ({ card }) => {
         return (
 
 
-        <div className=' w-11/12 mx-auto'>
+        <div className=' w-11/12 mx-auto '>
 
 
             <Link to={`/oneCard/${id}`}>
 
-                <div className=" w-56 h-64 my-5" style={{ backgroundColor: color_card_bg }}>
+                <div className=" w-56 h-64 my-5 rounded-xl " style={{ backgroundColor: color_card_bg }}>
 
-                <figure> <img className='w-64' src={Picture} alt={Title} /></figure>
+                <figure> <img className='w-64 rounded-t-lg ' src={Picture} alt={Title} /></figure>
 
                 
                  <div className="mx-4 my-8 "  >

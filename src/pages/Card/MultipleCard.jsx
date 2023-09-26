@@ -4,7 +4,7 @@ import swal from "sweetalert";
 const MultipleCard = ({ card }) => {
 
 
-    const { id, Picture, Title, Category, Category_bg, Card_bg, Text_button_bg, Description, Price } = card || {}
+    const { id, Picture, Title, Category, color_btn_bg, color_card_bg, color_text_button, Description, Price } = card || {}
 
     const handleAddToDonation = () => {
 
@@ -16,7 +16,7 @@ const MultipleCard = ({ card }) => {
 
             addToDonation.push(card)
             localStorage.setItem('donation', JSON.stringify(addToDonation))
-            swal("Great Job!", "Donation Success!", "success");
+            swal("Great Work!", "You Donated SuccessFully!", "success");
 
         }
 
@@ -29,11 +29,11 @@ const MultipleCard = ({ card }) => {
                 
                 addToDonation.push(...donationPage, card)
             localStorage.setItem('donation', JSON.stringify(addToDonation))
-            swal("Good job!", "You clicked the button!", "success");
+            swal("Great Work!", "You Donated SuccessFully!", "success");
 
             } else {
 
-                swal("Error!", "No Duplicate!", "error");
+                swal("Alert!", " You Are Already Donate This Item  ", "error");
             }
 
             
@@ -47,23 +47,20 @@ const MultipleCard = ({ card }) => {
 
         // detaile card 
 
-        <div >
+        <div>
 
+               <div className="relative " >
+               <img className="w-full rounded-b-xl" src={Picture} alt="" />
 
-
-            <div className="hero  ">
-            <figure> <img className='w-96 h-96 ' src={Picture} alt={Title} /></figure>
-
-                <div className=" "></div>
-
-                <div className="">
-                    <button onClick={handleAddToDonation} className="btn btn-secondary">Donate {Price}</button>
+               <div className="bg-blend-overlay rounded-b-lg bg-cover bg-fixed p-6 bg-black/50 absolute bottom-0 w-full">
+                    <button onClick={handleAddToDonation} style={{backgroundColor: color_text_button}} className="p-2 text-white font-bold rounded-lg">Donate {Price}</button>
                 </div>
-            </div>
+
+               </div>
 
             <div className="mx-5 my-10">
                 <h3 className="font-extrabold text-3xl text-[#0B0B0B] ">{Title} </h3>
-                <p className="font-normal text-lg py-4  ">{Description}</p>
+                <p className="font-normal text-lg py-4">{Description}</p>
 
             </div>
         </div>
