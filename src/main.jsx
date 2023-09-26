@@ -5,7 +5,6 @@ import './index.css'
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import MainLayout from './Components/MainLayout/MainLayout';
 import Home from './pages/Home/Home';
-import Donation from './pages/Donation/Donation';
 import Statistics from './pages/Statistics/Statistics';
 import OneCard from './pages/Card/OneCard';
 import ErrorPage from './pages/ErrorPage/ErrorPage';

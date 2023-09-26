@@ -7,7 +7,7 @@ const Donate = () => {
 
   const [noDataFound, setNoDAtaFound] = useState("")
 
-  const [seeAll, setSeeAll] = useState (false)
+  const [seeAll, setSeeAll] = useState(false)
 
   useEffect(() => {
 
@@ -41,22 +41,20 @@ const Donate = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mx-auto w-10/12'>
 
-              { seeAll? 
-              
-              donateItem.map(card => <DonateCard key={card.id} card={card}></DonateCard>) :
-              
-              donateItem.slice(0,4).map(card => <DonateCard key={card.id} card={card}></DonateCard>) }
+              {seeAll ?
 
+                donateItem.map(card => <DonateCard key={card.id} card={card}></DonateCard>) :
+
+                donateItem.slice(0, 4).map(card => <DonateCard key={card.id} card={card}></DonateCard>)}
 
             </div>
-          
 
-         <div className='text-center'>
+            <div className='text-center'>
 
 
-         { donateItem.length > 4 &&  <button onClick={() => setSeeAll(!seeAll)}   className='px-5 py-1 text-[#FFF]  rounded mx-auto text-lg font-semibold bg-[#009444]'> {seeAll? "See Less" : "See all"}</button>}
+              {donateItem.length > 4 && <button onClick={() => setSeeAll(!seeAll)} className='px-5 py-1 text-lg font-medium text-[#FFF]  rounded mx-auto  bg-[#009444]'> {seeAll ? "See Less" : "See All"}</button>}
 
-         </div>
+            </div>
 
 
           </div>
