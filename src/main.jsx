@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 
       path:"/",
       element:<Home></Home>,
-      loader: () => fetch ('/public/card.json')
+      loader: () => fetch ('/card.json')
 
     },
 
@@ -32,7 +32,8 @@ const router = createBrowserRouter([
 
     { 
       path:"/statistics",
-      element:<Statistics></Statistics>
+      element:<Statistics></Statistics>,
+      loader: () => fetch ('/card.json')
 
 
     } ,
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
     {
       path:"/oneCard/:id",
       element:<OneCard></OneCard>,
-      loader: () => fetch ('/public/card.json')
+      loader: () => fetch ('/card.json')
     }
   
   ]
