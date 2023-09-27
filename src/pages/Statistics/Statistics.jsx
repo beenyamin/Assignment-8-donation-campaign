@@ -1,6 +1,6 @@
 
 import { useLoaderData } from 'react-router-dom';
-import { PieChart, Pie, Legend,  Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from 'recharts';
 
 
 
@@ -8,16 +8,17 @@ const Statistics = () => {
 
 
     const donationPage = JSON.parse(localStorage.getItem('donation'))
-    let yourDonation = donationPage?.length + 0;
-  
+    let yourDonation = donationPage?.length || 0;
+
     const totalDonations = useLoaderData();
     const totalDonation = totalDonations?.map(Donation => Donation)
-  
+    const all = totalDonation?.length - yourDonation;
+
 
     const data = [
-        
+
         { name: 'Your Donation', value: yourDonation },
-        { name: 'Total Donation', value: totalDonation.length },
+        { name: 'Total Donation', value: all },
     ];
 
 
@@ -45,9 +46,9 @@ const Statistics = () => {
 
                     <div className="col-md-8">
                         <ResponsiveContainer width={400} height={400} className="text-center">
-                            
-                            <PieChart width={600} height={600}>
-                                <Legend layout="" verticalAlign="" align="" />
+
+                            <PieChart width={200} height={600}>
+
                                 <Pie
                                     data={data}
                                     cx="50%"
@@ -63,7 +64,15 @@ const Statistics = () => {
                                     ))}
                                 </Pie>
                             </PieChart>
-                        </ResponsiveContainer> 
+                        </ResponsiveContainer>
+                    </div>
+                    <div className=" flex gap-5 justify-center items-center">
+                        <div>
+                            <div className=' lg:flex justify-center items-center gap-0 lg:gap-5'>Your Donation<div className='bg-[#00C49F] h-2 w-20 '></div></div>
+                        </div>
+                        <div>
+                            <div className='lg:flex justify-center items-center gap-0 lg:gap-5'>Total Donation<div className='bg-[red] h-2 w-20 '></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
